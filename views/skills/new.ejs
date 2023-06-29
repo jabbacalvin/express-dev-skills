@@ -4,6 +4,8 @@
 <li class="breadcrumb-item active" aria-current="page"><%= title %></li>
 <%- include('../partials/breadcrumbEnd') %>
 
-    <h3><%= skill.name %></h3>
-    <a href="/skills/<%= skill.id %>/edit" class="btn btn-light" role="button">Edit Skill</a>
+<form action="/skills" method="POST" autocomplete="off">
+    <input type="text" name="name">
+    <button type="submit" class="btn btn-light">Save Skill</button>
+</form>
 <%- include('../partials/footer') %>

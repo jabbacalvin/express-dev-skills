@@ -1,13 +1,17 @@
 <%- include('../partials/header') %>
+<%- include('../partials/breadcrumb') %>
+<li class="breadcrumb-item active" aria-current="page"><%= title %></li>
+<%- include('../partials/breadcrumbEnd') %>
 
     <ul>
       <% skills.forEach(function(s) { %>
         <li>
-          <a href="/skills/<%= s.id %>"><%= s.skill %></a>
-            - 
-          <%= s.skill ? 'done' : 'not done' %>
+          <form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+          </form>
+          <a href="/skills/<%= s.id %>"><%= s.name %></a>
         </li>
       <% }); %>
     </ul>
-    
+    <a href="/skills/new" class="btn btn-light" role="button">Add Skill</a>
 <%- include('../partials/footer') %>
